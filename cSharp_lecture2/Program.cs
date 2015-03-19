@@ -18,7 +18,14 @@ namespace cSharp_lecture2
 
 	class Square : Rectangle
 	{
-		public override void draw() { Console.WriteLine("Square drawing..."); }
+		public sealed override void draw() { Console.WriteLine("Square drawing..."); }
+		//sealed do not allow u to override , like "final" in java
+	}
+
+	class RedSquare : Square
+	{
+		public new void draw() { Console.WriteLine("RedSquare drawing..."); }
+		//we can just use 'new ', but not 'override'
 	}
 
 	class Program
@@ -45,6 +52,8 @@ namespace cSharp_lecture2
 			Shape sr = new Rectangle();
 			sr.draw(); 
 			// output shape < cos override draw() , we just look at the type declared(Shape) >
+
+
 		}
 	}
 }
