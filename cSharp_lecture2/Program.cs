@@ -6,6 +6,21 @@ using System.Threading.Tasks;
 
 namespace cSharp_lecture2
 {
+	class Shape
+	{
+		public virtual void draw()	{Console.WriteLine("shape draw..."); }
+	}
+
+	class Rectangle : Shape
+	{
+		public override void draw() { Console.WriteLine("Rectangle draw..."); }
+	}
+
+	class Square : Rectangle
+	{
+		public override void draw() { Console.WriteLine("Square drawing..."); }
+	}
+
 	class Program
 	{
 		static void Main(string[] args)
@@ -21,8 +36,15 @@ namespace cSharp_lecture2
 				Console.WriteLine(i);
 			//Array ends here
 			 * */
-
-
+			Shape s = new Shape();
+			s.draw(); 
+			//output shape
+			Rectangle r = new Rectangle();
+			r.draw(); 
+			// output rectangle
+			Shape sr = new Rectangle();
+			sr.draw(); 
+			// output shape < cos override draw() , we just look at the type declared(Shape) >
 		}
 	}
 }
